@@ -1,7 +1,6 @@
-
 /**
  * SUCCESS LOG
- * @param {*} message 
+ * @param {*} message
  */
 exports.successLog = function(message){
     console.log('\x1b[32m',message)
@@ -9,7 +8,7 @@ exports.successLog = function(message){
 
 /**
  * WARNING LOG
- * @param {*} message 
+ * @param {*} message
  */
  exports.warningLog = function(message){
     console.log('\x1b[33m',message)
@@ -17,9 +16,18 @@ exports.successLog = function(message){
 
 /**
  * ERROR LOG
- * @param {*} message 
+ * @param {*} message
  */
  exports.errorLog = function(message){
     console.log('\x1b[31m',message)
+}
+
+/**
+ * EXIT WITH MESSAGE
+ * @param message
+ */
+exports.exitWithErrorMessage = function(message){
+    console.log('\x1b[31m',message)
+    return process.exit(1)
 }
 

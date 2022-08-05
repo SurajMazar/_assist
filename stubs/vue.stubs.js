@@ -1,7 +1,7 @@
 const { isTypescript } = require("../utils/helper")
 
 exports.vueStubs = function(name){
-    
+
     if(isTypescript()){
         return {
             stub:tsStub(name),
@@ -18,49 +18,49 @@ exports.vueStubs = function(name){
 
 /**
  * VUE COMPONENT TS STUB
- * @param {*} name 
- * @returns 
+ * @param {*} name
+ * @returns
  */
 function tsStub(name){
     return `
-    <template>
-    </template>
+<template>
+</template>
 
-    <script>
-        import {defineComponent} from 'vue'
+<script>
+    import {defineComponent} from 'vue'
 
-        export default definedComponent({
-            name:'${name}',
-            setup(){
+    export default definedComponent({
+        name:'${name}',
+        setup(){
 
-            }
-        })
+        }
+    })
 
-    </script>
-    
-    <style lang="scss">
-    </style>`
+</script>
+
+<style lang="scss">
+</style>`
 }
 
 /**
  * VUE COMPONENT JS STUB
- * @param {*} name 
- * @returns 
+ * @param {*} name
+ * @returns
  */
 function jsStub(name){
     return `
-    <template>
-    </template>
+<template>
+</template>
 
-    <script>
-        export default {
-            name:'${name}',
-            setup(){
+<script>
+    export default {
+        name:'${name}',
+        setup(){
 
-            }
         }
-    </script>
-    
-    <style lang="scss">
-    </style>`
+    }
+</script>
+
+<style lang="scss">
+</style>`
 }

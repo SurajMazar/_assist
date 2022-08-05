@@ -18,43 +18,43 @@ exports.reactStub = function(name){
 
 function jsStub(name){
     return `
-    import React from 'react'
+import React from 'react'
 
-    const ${name} = (props) => {
+const ${name} = (props) => {
 
-        /**
-         * COMPONENT PROPS
-         */
-        const {children} = props
+    /**
+     * COMPONENT PROPS
+     */
+    const {children} = props
 
-        return (
-            <></>
-        )
-    }
-    
-    export default ${name}`
+    return (
+        <></>
+    )
+}
+
+export default ${name}`
 }
 
 /**
  * REACT COMPONENT TS STUB
- * @param {*} name 
- * @returns 
+ * @param {*} name
+ * @returns
  */
 function tsStub(name){
     return `
-    import React,{ PropsWithChildren } from 'react'
+import React,{ PropsWithChildren } from 'react'
 
-    const ${name}: React.FC<PropsWithChildren>  = (props) => {
+const ${name}: React.FC<PropsWithChildren>  = (props) => {
 
-        /**
-         * COMPONENT PROPS
-         */
-        const {children} = props
+    /**
+     * COMPONENT PROPS
+     */
+    const {children} = props
 
-        return (
-            <></>
-        )
-    }
-    
-    export default ${name}`
+    return (
+        <></>
+    )
+}
+
+export default ${name}`
 }

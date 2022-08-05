@@ -16,6 +16,10 @@ exports.isTypescript = function(){
 exports.isValidMakeCommand = function(){
     const command = process.argv[2]
 
+    if(!command){
+        return false
+    }
+
     /**
      * COMMAND PARSING
      */

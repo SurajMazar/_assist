@@ -13,6 +13,16 @@ exports.getStub = function(type,name){
                 defaultPath:'resources/js',
                 ...vueStubs(name)
             }
+        case "rc":
+            return {
+                defaultPath:'src',
+                ...reactStub(name)
+            }
+        case "vc":
+            return {
+                defaultPath:'src',
+                ...vueStubs(name)
+            }
         default:
             return undefined
     }

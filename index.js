@@ -1,4 +1,4 @@
-const app = require("./bootstrap/app");
+const app = require('./bootstrap/app')
 
 /**
  * COMMAND RUNS HERE

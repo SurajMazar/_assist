@@ -3,11 +3,10 @@
  * @param str
  * @returns {string}
  */
-exports.generateCamelCase = function(str){
-    const camelCase =  str.replace(/[^a-zA-Z0-9]+(.)/g, function(match, chr)
-    {
-        return chr.toUpperCase();
-    });
+exports.generateCamelCase = function (str) {
+    const camelCase = str.replace(/[^a-zA-Z0-9\[\]]]+(.)/g, function (match, chr) {
+        return chr.toUpperCase()
+    })
     return FirstCharcterToUpper(camelCase)
 }
 
@@ -17,6 +16,6 @@ exports.generateCamelCase = function(str){
  * @returns {string}
  * @constructor
  */
-function FirstCharcterToUpper (string) {
+function FirstCharcterToUpper(string) {
     return string.charAt(0).toUpperCase() + string.substring(1)
 }

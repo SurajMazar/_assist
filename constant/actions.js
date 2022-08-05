@@ -1,3 +1,1 @@
-exports.actions = [
-    "make"
-]
+exports.actions = ['make']

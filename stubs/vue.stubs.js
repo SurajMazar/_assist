@@ -1,27 +1,25 @@
-const { isTypescript } = require("../utils/helper")
+const { isTypescript } = require('../utils/helper')
 
-exports.vueStubs = function(name){
-
-    if(isTypescript()){
+exports.vueStubs = function (name) {
+    if (isTypescript()) {
         return {
-            stub:tsStub(name),
-            extension:'vue'
+            stub: tsStub(name),
+            extension: 'vue'
         }
     }
 
     return {
-        stub:jsStub(name),
-        extension:'vue'
+        stub: jsStub(name),
+        extension: 'vue'
     }
 }
-
 
 /**
  * VUE COMPONENT TS STUB
  * @param {*} name
  * @returns
  */
-function tsStub(name){
+function tsStub(name) {
     return `
 <template>
 </template>
@@ -47,7 +45,7 @@ function tsStub(name){
  * @param {*} name
  * @returns
  */
-function jsStub(name){
+function jsStub(name) {
     return `
 <template>
 </template>

@@ -1,12 +1,13 @@
-const { makeCommands } = require("../constant/commands")
-const { exitWithErrorMessage} = require("./logger")
+const { makeCommands } = require('../constant/commands')
+const { exitWithErrorMessage, successLog} = require('./logger')
 const {flags} = require("../constant/flags");
+
 
 /**
  * CHECK IF COMMANDS CONTAINS TYPESCRIPT FLAG
  * @returns
  */
-exports.isTypescript = function(){
+exports.isTypescript = function () {
     const flag = process.argv
     return flag.includes(flags.typescript)
 }
@@ -14,51 +15,48 @@ exports.isTypescript = function(){
 /**
  * CHECK IS COMMAND IS VALID
  */
-exports.isValidMakeCommand = function(){
+exports.isValidMakeCommand = function () {
     const command = process.argv[2]
 
-    if(!command){
-        return false
+    if (!command) {
+        process.exit(1)
     }
 
     /**
      * COMMAND PARSING
      */
-    const commandArray = command.split(":")
+    const commandArray = command.split(':')
 
-    if(commandArray[0] === "make"){
-
-        if(commandArray[1] && makeCommands.includes(commandArray[1])){
+    if (commandArray[0] === 'make') {
+        if (commandArray[1] && Object.values(makeCommands).includes(commandArray[1])) {
             return true
         }
-
     }
 
     return false
 }
 
-exports.formattedCommand = function(){
+exports.formattedCommand = function () {
     const command = process.argv[2]
 
     /**
      * COMMAND PARSING
      */
-    const commandArray = command.split(":")
+    const commandArray = command.split(':')
 
     return {
-        action:commandArray[0],
-        command:commandArray[1],
+        action: commandArray[0],
+        command: commandArray[1]
     }
 }
-
 
 /**
  * HAS FILE PATH CHECK
  */
-exports.hasFilePath = function(){
+exports.hasFilePath = function () {
     const filepath = process.argv[3]
 
-    if(!filepath){
+    if (!filepath) {
         exitWithErrorMessage('Enter file name or path')
     }
 
@@ -66,7 +64,7 @@ exports.hasFilePath = function(){
 
     return {
         filepath,
-        name:patharray[patharray.length-1]
+        name: patharray[patharray.length - 1]
     }
 }
 
@@ -74,21 +72,52 @@ exports.hasFilePath = function(){
  * GET NAME FROM FLAG
  * @returns {string|boolean}
  */
-exports.getName = function(){
-    const arguments =  process.argv
-    const nameArgv = arguments.find(item=> item.match(flags.name))
+exports.getName = function () {
+    const arguments = process.argv
+    const nameArgv = arguments.find((item) => item.match(flags.name))
 
-    if(nameArgv){
-        const nameArgvArray = nameArgv.split("=")
-        if(nameArgvArray[1]){
+    if (nameArgv) {
+        const nameArgvArray = nameArgv.split('=')
+        if (nameArgvArray[1]) {
             return nameArgvArray[1]
         }
-        exitWithErrorMessage("When using --name flag please specify valid seperated by '=' ")
+        exitWithErrorMessage(
+            "When using --name flag please specify valid seperated by '=' "
+        )
     }
 
-    return false;
+    return false
 }
 
+/**
+ * CHECK IF COMMAND HAS HELP FLAG
+ */
+exports.helpFlag = function(){
+    const flag = process.argv
+    const command = process.argv[2]
+    return !command || flag.includes(flags.help)
+}
 
+/**
+ * SHOW HELPERS
+ */
+exports.showHelpers =  function(){
+successLog(`
+    Make commands:
+    make:rc         - REACT COMPONENT
+    make:vc         - VUE COMPONENT
+    make:lrc        - LARAVEL REACT COMPONENT
+    make:lvc        - LARAVEL VUE COMPONENT
+    make:nxc        - NEXT COMPONENT
+    make:nxp        - NEXT PAGE
+    make:nxpd       - NEXT DYNAMIC PAGE
+    make:nxp-ssr    - NEXT PAGE WITH SSR
+    make:nxpd-ssr   - NEXT DYNAMIC PAGE WITH SSR
 
-
+    Flags:
+    --help          - to see the available commands
+    --ts            - for typescript support
+    --name={name}   - component name
+`)
+process.exit(1)
+}

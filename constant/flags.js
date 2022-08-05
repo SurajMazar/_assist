@@ -3,6 +3,7 @@
  * @type {{name: string, typescript: string}}
  */
 exports.flags = {
-    typescript:"--ts",
-    name:"--name"
+    typescript: '--ts',
+    name:'--name',
+    help:'--help'
 }

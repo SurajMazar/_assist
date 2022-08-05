@@ -1,22 +1,20 @@
-const { isTypescript } = require("../utils/helper")
+const { isTypescript } = require('../utils/helper')
 
-exports.reactStub = function(name){
-
-    if(isTypescript()){
+exports.reactStub = function (name) {
+    if (isTypescript()) {
         return {
-            stub:tsStub(name),
-            extension:'tsx'
+            stub: tsStub(name),
+            extension: 'tsx'
         }
     }
 
     return {
-        stub:jsStub(name),
-        extension:'jsx'
+        stub: jsStub(name),
+        extension: 'jsx'
     }
 }
 
-
-function jsStub(name){
+function jsStub(name) {
     return `
 import React from 'react'
 
@@ -40,7 +38,7 @@ export default ${name}`
  * @param {*} name
  * @returns
  */
-function tsStub(name){
+function tsStub(name) {
     return `
 import React,{ PropsWithChildren } from 'react'
 

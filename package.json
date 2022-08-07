@@ -1,6 +1,6 @@
 {
-  "name": "assist",
-  "version": "1.0.0",
+  "name": "srz",
+  "version": "1.0.1",
   "description": "Cli for generating frontend component",
   "main": "bin/index.js",
   "scripts": {
@@ -15,11 +15,14 @@
   ],
   "author": "surajMazar",
   "license": "MIT",
-  "bin":{
-    "_assist":"./bin/index.js"
+  "bin": {
+    "_assist": "./bin/index.js"
   },
   "bugs": {
     "url": "https://github.com/SurajMazar/_assist/issues"
   },
-  "homepage": "https://github.com/SurajMazar/_assist#readme"
+  "homepage": "https://github.com/SurajMazar/_assist#readme",
+  "dependencies": {
+    "g": "^2.0.1"
+  }
 }

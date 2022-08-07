@@ -24,6 +24,7 @@ Flags:
 --help          - to see the available commands
 --ts            - for typescript support
 --name={name}   - component name
+
 ```
 
 ## Usage with laravel
@@ -35,7 +36,9 @@ for react
 this command will create a react component inside `resources/js/component/example` with basic structure
 
 
-## Usage with vue and react rpojects 
+
+
+## Usage with vue and react projects 
 
 ```
 npx srz make:rc components/example 
@@ -48,7 +51,9 @@ similarly for vue
 npx srz make:vc components/example 
 ```
 
-## usage with NEXT JS
+
+
+## Usage with NEXT JS
 
 for next components
 
@@ -75,7 +80,6 @@ for next SSR pages
 npx srz make:nxpd-ssr blog
 ```
 
-
 for next SSR dynamic pages
 
 ```
@@ -83,7 +87,9 @@ npx srz make:nxpd-ssr blog/blogId
 ```
 
 
-## Usage with typescript
+
+
+## For typescript support
 
 ```
   npx srz make:rc component/example --ts
@@ -92,7 +98,10 @@ npx srz make:nxpd-ssr blog/blogId
 Add `--ts` flag to generate typescript supported components
 
 
-## Named component
+
+
+
+## Named components
 
 ```
   npx srz make:rc component/Blog/Create --name=CreateBlog

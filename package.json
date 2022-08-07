@@ -1,0 +1,25 @@
+{
+  "name": "assist",
+  "version": "1.0.0",
+  "description": "Cli for generating frontend component",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "node . "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SurajMazar/_assist.git"
+  },
+  "keywords": [
+    "_assist"
+  ],
+  "author": "surajMazar",
+  "license": "MIT",
+  "bin":{
+    "_assist":"./bin/index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/SurajMazar/_assist/issues"
+  },
+  "homepage": "https://github.com/SurajMazar/_assist#readme"
+}

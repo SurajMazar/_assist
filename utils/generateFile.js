@@ -9,9 +9,9 @@ exports.generateFile = function (path, content, extension, dynamic = false) {
         path = generateDynamicPath(path)
     }
 
-    fs.mkdirSync(`${__dirname}/../../${path}`, { recursive: true })
+    fs.mkdirSync(`${__dirname}/../../../${path}`, { recursive: true })
 
-    const filepath = `${__dirname}/../../${path}/index.${extension}`
+    const filepath = `${__dirname}/../../../${path}/index.${extension}`
 
     if (!fs.existsSync(filepath)) {
         fs.writeFileSync(`${filepath}`, content)

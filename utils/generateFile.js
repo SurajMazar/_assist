@@ -1,21 +1,28 @@
 const fs = require('fs')
+const path = require('path')
 const { successLog, errorLog } = require('./logger')
 
-exports.generateFile = function (path, content, extension, dynamic = false) {
+exports.generateFile = function (pathname, content, extension, dynamic = false) {
+
+    /**
+     * TERMINAL PATH
+     */
+    const terminalPath = process.cwd()
+
     /**
      * GENERATE DYNAMIC PATH ARRAY
      */
     if(dynamic){
-        path = generateDynamicPath(path)
+        pathname = generateDynamicPath(pathname)
     }
 
-    fs.mkdirSync(`${__dirname}/../../../${path}`, { recursive: true })
+    fs.mkdirSync(path.join(terminalPath,pathname), { recursive: true })
 
-    const filepath = `${__dirname}/../../../${path}/index.${extension}`
+    const filepath = `${path.join(terminalPath,pathname)}/index.${extension}`
 
     if (!fs.existsSync(filepath)) {
         fs.writeFileSync(`${filepath}`, content)
-        successLog(`${path}/index.${extension} file has been saved!`)
+        successLog(`${pathname}/index.${extension} file has been saved!`)
     } else {
         errorLog('File already exists!')
     }

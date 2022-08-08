@@ -1,6 +1,6 @@
 {
   "name": "srz",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Cli for generating frontend component",
   "main": "bin/index.js",
   "scripts": {
@@ -21,8 +21,5 @@
   "bugs": {
     "url": "https://github.com/SurajMazar/_assist/issues"
   },
-  "homepage": "https://github.com/SurajMazar/_assist#readme",
-  "dependencies": {
-    "g": "^2.0.1"
-  }
+  "homepage": "https://github.com/SurajMazar/_assist#readme"
 }

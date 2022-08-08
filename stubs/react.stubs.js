@@ -42,7 +42,7 @@ function tsStub(name) {
     return `
 import React,{ PropsWithChildren } from 'react'
 
-const ${name}: React.FC<PropsWithChildren>  = (props) => {
+const ${name}: React.FC<PropsWithChildren<{}>>  = (props) => {
 
     /**
      * COMPONENT PROPS

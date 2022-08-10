@@ -5,6 +5,27 @@
 ``` yarn add srz -D ```  or <br/>
 ``` npm i srz -d ```
 
+## Recommended Usage
+
+```
+  npm i srz -g
+```
+
+Can be executed from anywhere with
+
+```
+_assist 
+```
+
+command
+
+### Example
+
+```
+_assist make:rc Example
+```
+
+Generates react component inside src directory
 
 ## Available commands 
 

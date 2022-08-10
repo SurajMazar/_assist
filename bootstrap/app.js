@@ -3,12 +3,13 @@ const {
     isValidMakeCommand,
     hasFilePath,
     formattedCommand,
-    getName, showHelpers, helpFlag
+    showHelpers
 } = require('../utils/helper')
 const { errorLog } = require('../utils/logger')
 const path = require('path')
-const { generateFile } = require('../utils/generateFile')
+const { generateFile, generateTestFiles } = require('../utils/generateFile')
 const { generateCamelCase } = require('../utils/string')
+const { helpFlag, getName, hasTestFlag } = require('../utils/flags.util')
 
 function app() {
 
@@ -18,14 +19,14 @@ function app() {
 
     if (isValidMakeCommand()) {
         const filepath = hasFilePath() // exists if doesnt have file path
-
         const name = getName() // get name from args
-
-        const fcmd = formattedCommand()
+        const fcmd = formattedCommand() 
+        
+        const componentName = generateCamelCase(name ? name : filepath.name) //COMPONENT NAME
 
         const stubData = getStub(
             fcmd.command,
-            generateCamelCase(name ? name : filepath.name)
+            componentName
         )
 
         if (stubData) {
@@ -34,6 +35,14 @@ function app() {
                 stubData.stub,
                 stubData.extension,
                 stubData.dynamic || false
+            )
+        }
+
+        if(hasTestFlag()){
+            generateTestFiles(
+                path.join(stubData.defaultPath, filepath.filepath),
+                fcmd.command,
+                componentName
             )
         }
     } else {

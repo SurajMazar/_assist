@@ -1,6 +1,6 @@
 {
   "name": "srz",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Cli for generating frontend component",
   "main": "bin/index.js",
   "scripts": {

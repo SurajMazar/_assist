@@ -1,4 +1,4 @@
-const { isTypescript } = require('../utils/helper')
+const { isTypescript } = require('../utils/flags.util')
 
 exports.NextPageStub = function (name) {
     if (isTypescript()) {

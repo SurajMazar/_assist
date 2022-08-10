@@ -1,9 +1,10 @@
 /**
  * FLAGS IN THE COMMAND
- * @type {{name: string, typescript: string}}
+ * @type {{name: string, typescript: string, help:string, test:string}}
  */
 exports.flags = {
     typescript: '--ts',
     name:'--name',
-    help:'--help'
+    help:'--help',
+    test:'--test'
 }
